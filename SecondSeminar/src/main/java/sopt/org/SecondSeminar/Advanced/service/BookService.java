@@ -5,6 +5,8 @@ import sopt.org.SecondSeminar.Advanced.controller.dto.PriceUpdateDto;
 import sopt.org.SecondSeminar.Advanced.controller.dto.RegisterRequestDto;
 import sopt.org.SecondSeminar.Advanced.domain.Book;
 
+import java.util.ArrayList;
+
 import static sopt.org.SecondSeminar.SecondSeminarApplication.bookList;
 import static sopt.org.SecondSeminar.SecondSeminarApplication.postList;
 
@@ -30,5 +32,9 @@ public class BookService {
         book.updatePrice(priceUpdateDto.getPrice());
 
         return book;
+    }
+
+    public ArrayList<Book> getBookList() {
+        return bookList;
     }
 }
