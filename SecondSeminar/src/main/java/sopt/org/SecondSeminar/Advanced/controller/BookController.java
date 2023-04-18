@@ -9,6 +9,7 @@ import sopt.org.SecondSeminar.Advanced.controller.dto.request.RegisterRequestDto
 import sopt.org.SecondSeminar.Advanced.domain.Book;
 import sopt.org.SecondSeminar.Advanced.service.BookService;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 @RestController
@@ -17,12 +18,12 @@ public class BookController {
     private final BookService bookService;
 
     @PostMapping("/book")
-    public void register(@RequestBody RegisterRequestDto request) {
+    public void register(@RequestBody @Valid RegisterRequestDto request) {
         bookService.register(request);
     }
 
     @PutMapping("/book")
-    public BookInfoResponseDto updatePrice(@RequestBody PriceUpdateDto priceUpdateDto) {
+    public BookInfoResponseDto updatePrice(@RequestBody @Valid PriceUpdateDto priceUpdateDto) {
         Book book = bookService.updatePrice(priceUpdateDto);
         return new BookInfoResponseDto(book);
     }
