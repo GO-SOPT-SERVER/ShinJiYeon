@@ -1,7 +1,8 @@
 package sopt.org.SecondSeminar.Advanced.service;
 
 import org.springframework.stereotype.Service;
-import sopt.org.SecondSeminar.Advanced.controller.dto.BookRequestDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.PriceUpdateDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.RegisterRequestDto;
 import sopt.org.SecondSeminar.Advanced.domain.Book;
 
 import static sopt.org.SecondSeminar.SecondSeminarApplication.bookList;
@@ -10,7 +11,7 @@ import static sopt.org.SecondSeminar.SecondSeminarApplication.postList;
 @Service
 public class BookService {
 
-    public long register(BookRequestDto request) {
+    public long register(RegisterRequestDto request) {
         Book book = Book.builder()
                 .title(request.getTitle())
                 .author(request.getAuthor())
@@ -21,5 +22,13 @@ public class BookService {
         bookList.add(book);
 
         return book.getId();
+    }
+
+    public Book updatePrice(PriceUpdateDto priceUpdateDto) {
+        Book book = bookList.get(priceUpdateDto.getId().intValue());
+
+        book.updatePrice(priceUpdateDto.getPrice());
+
+        return book;
     }
 }

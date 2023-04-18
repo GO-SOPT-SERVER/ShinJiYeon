@@ -14,13 +14,11 @@ public class Book {
 
     private int price;
 
-    public Book(String title, String author, int price) {
-        this.title = title;
-        this.author = author;
-        this.price = price;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void updatePrice(int price) {
+        this.price = price;
     }
 }

@@ -3,10 +3,8 @@ package sopt.org.SecondSeminar.Advanced.controller.dto;
 import lombok.Getter;
 
 @Getter
-public class RegisterRequestDto {
-    private String title;
-
-    private String author;
+public class PriceUpdateDto {
+    private Long id;
 
     private int price;
 }

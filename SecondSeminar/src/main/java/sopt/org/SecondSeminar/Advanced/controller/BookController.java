@@ -1,10 +1,11 @@
 package sopt.org.SecondSeminar.Advanced.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import sopt.org.SecondSeminar.Advanced.controller.dto.BookRequestDto;
+import org.springframework.web.bind.annotation.*;
+import sopt.org.SecondSeminar.Advanced.controller.dto.BookInfoResponseDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.PriceUpdateDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.RegisterRequestDto;
+import sopt.org.SecondSeminar.Advanced.domain.Book;
 import sopt.org.SecondSeminar.Advanced.service.BookService;
 
 @RestController
@@ -13,7 +14,13 @@ public class BookController {
     private final BookService bookService;
 
     @PostMapping("/book")
-    public void register(@RequestBody BookRequestDto request) {
+    public void register(@RequestBody RegisterRequestDto request) {
         bookService.register(request);
+    }
+
+    @PutMapping("/book")
+    public BookInfoResponseDto updatePrice(@RequestBody PriceUpdateDto priceUpdateDto) {
+        Book book = bookService.updatePrice(priceUpdateDto);
+        return new BookInfoResponseDto(book);
     }
 }
