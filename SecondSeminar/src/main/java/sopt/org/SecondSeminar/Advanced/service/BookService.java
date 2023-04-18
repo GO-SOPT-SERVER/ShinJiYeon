@@ -27,6 +27,7 @@ public class BookService {
     }
 
     public Book updatePrice(PriceUpdateDto priceUpdateDto) {
+        //예외 처리 X
         Book book = bookList.get(priceUpdateDto.getId().intValue());
 
         book.updatePrice(priceUpdateDto.getPrice());
@@ -36,5 +37,10 @@ public class BookService {
 
     public ArrayList<Book> getBookList() {
         return bookList;
+    }
+
+    public void deleteOne(Long bookId) {
+        //예외 처리 X
+        bookList.remove(bookId.intValue());
     }
 }

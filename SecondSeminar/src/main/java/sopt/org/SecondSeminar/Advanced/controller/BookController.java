@@ -33,4 +33,9 @@ public class BookController {
 
         return new BookListResponseDto(bookList);
     }
+
+    @DeleteMapping("/book/{bookId}")
+    public void deleteOne(@PathVariable Long bookId) {
+        bookService.deleteOne(bookId);
+    }
 }
