@@ -2,10 +2,10 @@ package sopt.org.SecondSeminar.Advanced.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import sopt.org.SecondSeminar.Advanced.controller.dto.BookInfoResponseDto;
-import sopt.org.SecondSeminar.Advanced.controller.dto.BookListResponseDto;
-import sopt.org.SecondSeminar.Advanced.controller.dto.PriceUpdateDto;
-import sopt.org.SecondSeminar.Advanced.controller.dto.RegisterRequestDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.response.BookInfoResponseDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.response.BookListResponseDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.request.PriceUpdateDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.request.RegisterRequestDto;
 import sopt.org.SecondSeminar.Advanced.domain.Book;
 import sopt.org.SecondSeminar.Advanced.service.BookService;
 

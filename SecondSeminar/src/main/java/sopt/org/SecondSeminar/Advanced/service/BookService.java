@@ -1,8 +1,8 @@
 package sopt.org.SecondSeminar.Advanced.service;
 
 import org.springframework.stereotype.Service;
-import sopt.org.SecondSeminar.Advanced.controller.dto.PriceUpdateDto;
-import sopt.org.SecondSeminar.Advanced.controller.dto.RegisterRequestDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.request.PriceUpdateDto;
+import sopt.org.SecondSeminar.Advanced.controller.dto.request.RegisterRequestDto;
 import sopt.org.SecondSeminar.Advanced.domain.Book;
 
 import java.util.ArrayList;

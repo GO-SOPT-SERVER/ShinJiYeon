@@ -1,4 +1,4 @@
-package sopt.org.SecondSeminar.Advanced.controller.dto;
+package sopt.org.SecondSeminar.Advanced.controller.dto.request;
 
 import lombok.Getter;
 
