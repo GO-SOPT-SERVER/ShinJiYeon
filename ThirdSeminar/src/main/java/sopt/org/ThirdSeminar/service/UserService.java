@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import sopt.org.ThirdSeminar.controller.user.dto.request.UserRequestDto;
 import sopt.org.ThirdSeminar.controller.user.dto.response.UserResponseDto;
 import sopt.org.ThirdSeminar.domain.User;
+import sopt.org.ThirdSeminar.exception.BusinessException;
+import sopt.org.ThirdSeminar.exception.ErrorStatus;
 import sopt.org.ThirdSeminar.infrastructure.UserRepository;
 
 @Service
@@ -28,6 +30,7 @@ public class UserService {
     }
 
     public User findUserById(Long userId) {
-        return userRepository.findById(userId).orElseThrow();
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new BusinessException(ErrorStatus.USER_NOT_FOUND));
     }
 }
