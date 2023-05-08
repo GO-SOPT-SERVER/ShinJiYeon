@@ -29,6 +29,7 @@ public class UserService {
         return UserResponseDto.of(user.getId(), user.getNickname());
     }
 
+    @Transactional(readOnly = true)
     public User findUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new BusinessException(ErrorStatus.USER_NOT_FOUND));
