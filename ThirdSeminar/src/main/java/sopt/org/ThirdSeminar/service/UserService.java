@@ -18,6 +18,9 @@ public class UserService {
 
     @Transactional
     public UserResponseDto create(UserRequestDto request) {
+        CheckIfExistsByNickname(request.getNickname());
+        CheckIfExistsByEmail(request.getEmail());
+
         User user = User.builder()
                 .email(request.getEmail())
                 .nickname(request.getNickname())
@@ -33,5 +36,17 @@ public class UserService {
     public User findUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new BusinessException(ErrorStatus.USER_NOT_FOUND));
+    }
+
+    private void CheckIfExistsByNickname(String nickname) {
+        if (userRepository.existsByNickname(nickname)) {
+            throw new BusinessException(ErrorStatus.CONFLICT_NICKNAME_EXCEPTION);
+        }
+    }
+
+    private void CheckIfExistsByEmail(String email) {
+        if (userRepository.existsByEmail(email)) {
+            throw new BusinessException(ErrorStatus.CONFLICT_EMAIL_EXCEPTION);
+        }
     }
 }
