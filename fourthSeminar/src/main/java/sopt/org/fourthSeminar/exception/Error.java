@@ -18,6 +18,9 @@ public enum Error {
      * 404 NOT FOUND
      */
     NOT_FOUND_USER_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 유저입니다"),
+    NOT_FOUND_SAVE_IMAGE_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 이미지입니다."),
+    NOT_FOUND_IMAGE_EXCEPTION(HttpStatus.NOT_FOUND, "이미지 어쩌구"),
+    INVALID_MULTIPART_EXTENSION_EXCEPTION(HttpStatus.MULTI_STATUS, "이미지 어쩌구"),
 
     /**
      * 409 CONFLICT
@@ -29,6 +32,12 @@ public enum Error {
      * 500 INTERNAL SERVER ERROR
      */
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "알 수 없는 서버 에러가 발생했습니다"),
+
+    /**
+     *
+     */
+    TOKEN_TIME_EXPIRED_EXCEPTION(HttpStatus.UNAUTHORIZED, "권한 없어요"),
+    INVALID_PASSWORD_EXCEPTION(HttpStatus.UNAUTHORIZED, "권한 없어요")
     ;
 
     private final HttpStatus httpStatus;

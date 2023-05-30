@@ -13,7 +13,7 @@ import sopt.org.fourthSeminar.exception.model.SoptException;
 
 import java.util.Objects;
 
-@RestControllerAdvice
+//@RestControllerAdvice
 public class ControllerExceptionAdvice {
 
     /**
